@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Modal UI</title>
+  <link rel="stylesheet" href="libs/ui.css">
+  <style>
+    .section {
+      margin-bottom: 20px;
+    }
+    .section .title {
+      padding-bottom: 5px;
+      margin-bottom: 5px;
+      border-bottom: 1px solid #ddd;
+    }
+    .section .buttons {
+      padding-top: 10px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .section .buttons .button {
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="section">
+    <div class="title">对话框 Dialog</div>
+    <div class="buttons">
+      <button class="button" id="dialog-alert">显示 Alert</button>
+      <button class="button" id="dialog-confirm">显示 Confirm</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="title">轻提示 Toast</div>
+    <div class="buttons">
+      <button class="button" id="toast-success">显示 Toast 成功</button>
+      <button class="button" id="toast-fail">显示 Toast 失败</button>
+      <button class="button" id="toast-text">显示 Toast 纯文本</button>
+      <button class="button" id="toast-loading">显示 Loading</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="title">选择操作 Action Sheet</div>
+    <div class="buttons">
+      <button class="button" id="action-sheet">显示 Action Sheet</button>
+    </div>
+  </div>
+
+  <script src="jquery/jquery-1.11.3.min.js"></script>
+  <script src="libs/modal.js"></script>
+  <script src="libs/toast.js"></script>
+  <script src="libs/action.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

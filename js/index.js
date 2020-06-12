@@ -1,18 +1,36 @@
 $(function () {
-  $('#dialog-alert').click(function () {
+  // Alert Demo
+  $('#dialog-alert-1').click(function () {
+    $.alert('代码是写给人看的，附带能在机器上运行', function () {
+      console.log('知道了')
+    })
+  })
+
+  $('#dialog-alert-2').click(function () {
     $.alert({
       title: '提示',
       content: '代码是写给人看的，附带能在机器上运行',
+      buttonOKClass: 'fail',
       onOK: function () {
-        console.log('alert ok')
+        console.log('好的')
       }
     })
   })
 
-  $('#dialog-confirm').click(function () {
+  $('#dialog-confirm-1').click(function () {
+    $.confirm('代码是写给人看的，附带能在机器上运行，你同意吗？', function () {
+      console.log('同意')
+    }, function () {
+      console.log('不同意')
+    })
+  })
+
+  $('#dialog-confirm-2').click(function () {
     $.confirm({
-      title: '请问',
+      title: '提示',
       content: '代码是写给人看的，附带能在机器上运行，你同意吗？',
+      buttonOK: '同意',
+      buttonCancel: '不同意',
       onOK: function () {
         console.log('同意')
       },
@@ -22,16 +40,31 @@ $(function () {
     })
   })
 
+  $('#dialog-login').click(function () {
+    $.confirm({
+      title: '重新登录',
+      content: $('#tpl-login').html(),
+      buttonOK: '登录',
+      onOK: function () {
+        console.log('登录')
+      },
+      onCancel: function () {
+        console.log('取消')
+      }
+    })
+  })
+
+  // Toast Demo
+  $('#toast-text').click(function () {
+    $.toast('套版完成')
+  })
+
   $('#toast-success').click(function () {
-    $.toast('操作成功')
+    $.toast('操作成功', 'success')
   })
 
   $('#toast-fail').click(function () {
-    $.toast('操作失败', 'info')
-  })
-
-  $('#toast-text').click(function () {
-    $.toast('套版完成', 'text')
+    $.toast('非法操作', 'info')
   })
 
   $('#toast-loading').click(function () {
@@ -41,6 +74,7 @@ $(function () {
     }, 2000)
   })
 
+  // ActionSheet Demo
   $('#action-sheet').click(function () {
     $.actions({
       actions: [

@@ -24,31 +24,67 @@
       margin-right: 10px;
       margin-bottom: 10px;
     }
+    .template-string {
+      display: none;
+    }
+
+    .login-form {
+      padding: 0 0 15px 0;
+    }
+    .login-form .form-input {
+      display: block;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin: 0;
+      padding: 2px 10px;
+      height: 44px;
+      box-sizing: border-box;
+      outline: none;
+      width: 100%;
+    }
+    .login-form .form-input:last-child {
+      margin-top: 10px;
+    }
+    .page-title {
+      margin-top: 0;
+    }
   </style>
 </head>
 <body>
+  <h1 class="page-title">演示Demo</h1>
+
   <div class="section">
     <div class="title">对话框 Dialog</div>
     <div class="buttons">
-      <button class="button" id="dialog-alert">显示 Alert</button>
-      <button class="button" id="dialog-confirm">显示 Confirm</button>
+      <button class="button" id="dialog-alert-1">显示 Alert（直接传内容）</button>
+      <button class="button" id="dialog-alert-2">显示 Alert（传入配置参数）</button>
+      <button class="button" id="dialog-confirm-1">显示 Confirm（直接传内容）</button>
+      <button class="button" id="dialog-confirm-2">显示 Confirm（传入配置参数）</button>
+      <button class="button" id="dialog-login">显示 Confirm（自定义内容）</button>
     </div>
   </div>
 
   <div class="section">
-    <div class="title">轻提示 Toast</div>
+    <div class="title">轻提示 Toast（默认 3 秒后自动关闭）</div>
     <div class="buttons">
-      <button class="button" id="toast-success">显示 Toast 成功</button>
-      <button class="button" id="toast-fail">显示 Toast 失败</button>
       <button class="button" id="toast-text">显示 Toast 纯文本</button>
+      <button class="button" id="toast-success">显示 Toast 成功</button>
+      <button class="button" id="toast-fail">显示 Toast 警示</button>
       <button class="button" id="toast-loading">显示 Loading</button>
     </div>
   </div>
 
   <div class="section">
-    <div class="title">选择操作 Action Sheet</div>
+    <div class="title">动作面板 Action Sheet</div>
     <div class="buttons">
       <button class="button" id="action-sheet">显示 Action Sheet</button>
+    </div>
+  </div>
+
+  <div id="tpl-login" class="template-string">
+    <div class="login-form">
+      <input type="text" class="form-input" placeholder="手机号码 / 邮箱 / 用户名">
+      <input type="password" class="form-input" placeholder="输入密码">
     </div>
   </div>
 

@@ -55,7 +55,7 @@
   })
 
   defaults = $.actions.prototype.defaults = {
-    title: undefined,
-    onClose: undefined
+    title: '',
+    onClose: null
   }
 })($)

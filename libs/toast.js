@@ -21,17 +21,17 @@
       callback = style
     }
 
-    var className, iconClassName = 'diyui-icon-success-no-circle'
+    var className, iconClassName = ''
     var duration = toastDefaults.duration
 
-    if(style == 'info') {
-      className = 'diyui-toast_info';
+    if (!style) {
+      className = 'diyui-toast_text'
+    } else if(style === 'info') {
+      className = 'diyui-toast_info'
       iconClassName = 'diyui-icon-info-circle'
-    } else if(style == 'forbidden') {
-      className = 'diyui-toast--forbidden';
-      iconClassName = 'diyui-icon-warn'
-    } else if(style == 'text') {
-      className = 'diyui-toast--text';
+    } else if (style === 'success') {
+      className = 'diyui-toast_success'
+      iconClassName = 'diyui-icon-success-no-circle'
     } else if(typeof style === typeof 1) {
       duration = style
     }

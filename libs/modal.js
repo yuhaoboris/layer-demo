@@ -52,65 +52,54 @@
     $('.diyui-dialog--visible').remove()
   }
 
-  $.alert = function(text, title, onOK) {
+  $.alert = function(text, callback) {
     var config
-    if (typeof text === 'object') {
-      config = text
-    } else {
-      if (typeof title === 'function') {
-        onOK = arguments[1]
-        title = undefined
-      }
 
+    if (Object.prototype.toString.call(text) === '[object Object]') {
+      config = text
+    } else if(typeof text === 'string') {
       config = {
         content: text,
-        title: title,
-        onOK: onOK
+        onOK: callback
       }
     }
 
     return $.modal({
+      title: config.title || defaults.title,
       content: config.content,
-      title: config.title,
       buttons: [{
-        text: defaults.buttonOK,
-        className: 'primary',
+        text: config.buttonOK || defaults.buttonOK,
+        className: config.buttonOKClass || defaults.buttonOKClass,
         onClick: config.onOK
       }]
     })
   }
 
-  $.confirm = function(text, title, onOK, onCancel) {
+  $.confirm = function(text, okCallback, cancelCallback) {
     var config
-    if (typeof text === 'object') {
-      config = text
-    } else {
-      if (typeof title === 'function') {
-        onCancel = arguments[2]
-        onOK = arguments[1]
-        title = undefined
-      }
 
+    if (Object.prototype.toString.call(text) === '[object Object]') {
+      config = text
+    } else if (typeof text === 'string') {
       config = {
         content: text,
-        title: title,
-        onOK: onOK,
-        onCancel: onCancel
+        onOK: okCallback,
+        onCancel: cancelCallback
       }
     }
 
     return $.modal({
+      title: config.title || defaults.title,
       content: config.content,
-      title: config.title,
       buttons: [
       {
-        text: defaults.buttonCancel,
-        className: 'default',
+        text: config.buttonCancel || defaults.buttonCancel,
+        className: config.buttonCancelClass || defaults.buttonCancelClass,
         onClick: config.onCancel
       },
       {
-        text: defaults.buttonOK,
-        className: 'primary',
+        text: config.buttonOK || defaults.buttonOK,
+        className: config.buttonOKClass || defaults.buttonOKClass,
         onClick: config.onOK
       }]
     })
@@ -121,10 +110,8 @@
     content: undefined,
     buttonOK: "确定",
     buttonCancel: "取消",
-    buttons: [{
-      text: "确定",
-      className: "primary"
-    }],
+    buttonOKClass: 'primary',
+    buttonCancelClass: 'default',
     autoClose: true
   }
 })($)
